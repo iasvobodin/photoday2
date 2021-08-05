@@ -42,7 +42,7 @@
 				<span>"Ничего лишнего"</span>
 			</h1>
 		</div>
-		<div class="decription__first">
+		<div class="desc decription__first">
 			<picture class="decription__image">
 				<!-- <source srcset="/img/1.webp" type="image/webp" /> -->
 				<img
@@ -53,9 +53,11 @@
 					src="/img/1.jpg"
 				/>
 			</picture>
-			<div class="description__title">a</div>
+			<div class="description__title">
+				<h2>Фотографии на белом фоне, где главный герой Вы, а не интерьер студии.</h2>
+			</div>
 		</div>
-		<div class="decription__second">
+		<div class="desc decription__second">
 			<picture class="decription__image">
 				<source srcset="" type="image/webp" />
 				<img
@@ -66,9 +68,11 @@
 					src="/img/2.jpg"
 				/>
 			</picture>
-			<div class="description__title">a</div>
+			<div class="description__title">
+				<h2>Только ваши эмоции и чувства.</h2>
+			</div>
 		</div>
-		<div class="decription__third">
+		<div class="desc decription__third">
 			<picture class="decription__image">
 				<source srcset="/img/3.webp" type="image/webp" />
 				<img
@@ -79,7 +83,9 @@
 					src=""
 				/>
 			</picture>
-			<div class="description__title">a</div>
+			<div class="description__title">
+				<h2>Фотографии на белом фоне, где главный герой Вы, а не интерьер студии.</h2>
+			</div>
 		</div>
 	</section>
 	<section class="tenats">
@@ -116,7 +122,20 @@
 	.title__hedline > span:last-child {
 		text-align: right;
 	}
+	.description__title {
+		width: min(900px, 85vw);
+		place-self: center;
+	}
+	.description__title > h2 {
+		font-size: max(36px, 5vw);
+	}
 	img {
-		width: 70%;
+		width: 80%;
+	}
+	.desc {
+		width: 90vw;
+		margin: 0 auto;
+		display: grid;
+		grid-auto-flow: column;
 	}
 </style>
