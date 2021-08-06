@@ -10,7 +10,7 @@
 
 		rot = anime({
 			targets: '.title__background',
-			scale: [3, 1],
+			scale: [6, 1],
 			// translateX: '50%',
 			// rotate: 180,
 			easing: 'linear',
@@ -99,6 +99,7 @@
 		border: 1px solid red;
 	}
 	.title {
+		/* transform: translateY(-100%); */
 		height: 100vh;
 		display: grid;
 	}
