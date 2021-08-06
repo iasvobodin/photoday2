@@ -1,6 +1,7 @@
 <script>
 	import '../app.css';
 	import '../fonts.css';
+	import '../loco.css';
 	import { onMount } from 'svelte';
 	import anime from 'animejs';
 	let rot, scrollConatiner;
@@ -8,25 +9,25 @@
 		const locomotiveModule = await import('locomotive-scroll');
 
 		rot = anime({
-			targets: '.test',
-			translateX: 1000,
-			rotate: 180,
+			targets: '.title__background',
+			scale: [3, 1],
+			// translateX: '50%',
+			// rotate: 180,
 			easing: 'linear',
 			autoplay: false
 		});
-
+		// console.log(rot);
 		scroll = new locomotiveModule.default({
-			// el: scrollConatiner,
+			el: scrollConatiner,
 			smooth: true
-			// smoothMobile: false,
+			// smoothMobile: false
 		});
-
 		scroll.on('scroll', (func) => {
 			// Get all current elements : func.currentElements
 			if (typeof func.currentElements['hey'] === 'object') {
-				// let progress = func.currentElements['hey'].progress;
-				// // console.log(progress);
-				// rot.seek((progress / 2) * 1000);
+				let progress = func.currentElements['hey'].progress;
+				console.log(progress);
+				rot.seek(progress * 1000);
 				// ouput log example: 0.34
 				// gsap example : myGsapAnimation.progress(progress);
 			}
@@ -34,7 +35,7 @@
 	});
 </script>
 
-<main>
+<main bind:this={scrollConatiner}>
 	<section class="decription">
 		<div class="title">
 			<h1 class="title__hedline">
@@ -42,86 +43,67 @@
 				<span>"Ничего лишнего"</span>
 			</h1>
 		</div>
+		<div class="holder__bg">
+			<div
+				data-scroll-speed="6"
+				data-scroll
+				data-scroll-sticky
+				data-scroll-target="#hold"
+				class="imghold"
+			>
+				<img class="title__background" alt="SvobodinaPhoto" src="/img/1.jpg" />
+			</div>
+			<div id="hold" class="stick__triger" />
+			<div data-scroll data-scroll-id="hey" class="anim__triger" />
 
-		<div class="desc decription__first">
-			<picture class="decription__image">
-				<!-- <source srcset="/img/1.webp" type="image/webp" /> -->
-				<img
-					alt="SvobodinaPhoto"
-					crossorigin="anonimous"
-					decoding="async"
-					draggable="false"
-					src="/img/1.jpg"
-				/>
-			</picture>
-			<!-- <div class="description__title">
-				<h2>Фотографии на белом фоне,</h2>
-			</div> -->
-		</div>
-		<div class="desc decription__second">
-			<picture class="decription__image">
-				<source srcset="" type="image/webp" />
-				<img
-					alt="SvobodinaPhoto"
-					crossorigin="anonimous"
-					decoding="async"
-					draggable="false"
-					src="/img/2.jpg"
-				/>
-			</picture>
-			<!-- <div class="description__title">
-				<h2><br /><br />где главный герой Вы,</h2>
-			</div> -->
-		</div>
-		<div class="desc decription__third">
-			<picture class="decription__image">
-				<source srcset="/img/3.webp" type="image/webp" />
-				<img
-					alt="SvobodinaPhoto"
-					crossorigin="anonimous"
-					decoding="async"
-					draggable="false"
-					src=""
-				/>
-			</picture>
-			<!-- <div class="description__title">
-				<h2><br /><br /><br /><br />а не интерьер студии.</h2>
-			</div> -->
-		</div>
-		<div class="desc" />
-		<div class="test__holder">
-			<div class="test">
-				<h2>Фотографии на белом фоне,</h2>
-			</div>
-			<div class="test">
-				<h2><br />где главный герой Вы,</h2>
-			</div>
-			<div class="test">
-				<h2><br /><br />а не интерьер студии.</h2>
-			</div>
-			<div class="test" />
+			<div class="gap" />
+			<!-- <div data-scroll data-scroll-id="hey" class="trigger" /> -->
 		</div>
 	</section>
-	<section class="tenats">
-		<div class="tenats__first">a</div>
-		<div class="tenats__second">a</div>
-		<div class="tenats__third">a</div>
-	</section>
-	<section class="price">
-		<div class="price__first">a</div>
-		<div class="price__second">a</div>
-		<div class="price__third">a</div>
-	</section>
-	<section class="gallery" />
-	<section class="form" />
 </main>
 
 <style>
+	.imghold {
+		display: grid;
+		height: auto;
+	}
+	.anim__triger {
+		position: absolute;
+		height: 100vh;
+		width: 5px;
+		right: 150px;
+		top: 100vh;
+		border: 1px solid green;
+	}
+	.gap {
+		height: 100vh;
+	}
+	.title__background {
+		z-index: -1;
+		place-self: end;
+		/* position: absolute; */
+		transform-origin: 100% 0%;
+		right: 0px;
+	}
+	.holder__bg {
+		/* margin-top: -100vh; */
+		position: relative;
+		height: 400vh;
+	}
+	.stick__triger {
+		position: absolute;
+		height: 300vh;
+		width: 5px;
+		right: 50px;
+		top: 0;
+		border: 1px solid red;
+	}
 	.title {
 		height: 100vh;
 		display: grid;
 	}
 	.title__hedline {
+		z-index: 2;
 		width: 90%;
 		place-self: center;
 		font-size: max(36px, 10.8vw);
@@ -136,36 +118,10 @@
 	.title__hedline > span:last-child {
 		text-align: right;
 	}
-	.description__title {
-		/* width: min(800px, 60vw); */
-		place-self: center;
-	}
-	.description__title > h2 {
-		font-size: max(26px, 4vw);
-		z-index: 2;
-	}
 	img {
-		width: 90%;
-	}
-	.desc {
 		height: 100vh;
-		width: 98vw;
-		margin: 0 auto;
-		/* display: grid; */
-		grid-auto-flow: column;
-		position: sticky;
-		top: 20vh;
 	}
 	.decription {
 		position: relative;
-	}
-	.test {
-		height: 100vh;
-		position: sticky;
-		top: 50vh;
-	}
-	.test__holder {
-		position: absolute;
-		top: 100vh;
 	}
 </style>
