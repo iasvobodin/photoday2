@@ -42,64 +42,62 @@
 				<span>"Ничего лишнего"</span>
 			</h1>
 		</div>
-
 		<div class="desc decription__first">
-			<picture class="decription__image">
-				<!-- <source srcset="/img/1.webp" type="image/webp" /> -->
-				<img
-					alt="SvobodinaPhoto"
-					crossorigin="anonimous"
-					decoding="async"
-					draggable="false"
-					src="/img/1.jpg"
-				/>
-			</picture>
-			<!-- <div class="description__title">
-				<h2>Фотографии на белом фоне,</h2>
-			</div> -->
+			<div class="description__holder first">
+				<picture class="decription__image">
+					<!-- <source srcset="/img/1.webp" type="image/webp" /> -->
+					<img
+						alt="SvobodinaPhoto"
+						crossorigin="anonimous"
+						decoding="async"
+						draggable="false"
+						src="/img/1.jpg"
+					/>
+				</picture>
+				<div class="description__title">
+					<h2>Фотографии на белом фоне,</h2>
+				</div>
+			</div>
+			<div class="description__holder" />
+			<!-- <div class="description__holder" /> -->
 		</div>
 		<div class="desc decription__second">
-			<picture class="decription__image">
-				<source srcset="" type="image/webp" />
-				<img
-					alt="SvobodinaPhoto"
-					crossorigin="anonimous"
-					decoding="async"
-					draggable="false"
-					src="/img/2.jpg"
-				/>
-			</picture>
-			<!-- <div class="description__title">
-				<h2><br /><br />где главный герой Вы,</h2>
-			</div> -->
+			<div class="description__holder" />
+			<div class="description__holder">
+				<picture class="decription__image">
+					<source srcset="" type="image/webp" />
+					<img
+						alt="SvobodinaPhoto"
+						crossorigin="anonimous"
+						decoding="async"
+						draggable="false"
+						src="/img/2.jpg"
+					/>
+				</picture>
+				<div class="description__title">
+					<h2>где главный герой Вы,</h2>
+				</div>
+			</div>
+			<div class="description__holder" />
 		</div>
 		<div class="desc decription__third">
-			<picture class="decription__image">
-				<source srcset="/img/3.webp" type="image/webp" />
-				<img
-					alt="SvobodinaPhoto"
-					crossorigin="anonimous"
-					decoding="async"
-					draggable="false"
-					src=""
-				/>
-			</picture>
-			<!-- <div class="description__title">
-				<h2><br /><br /><br /><br />а не интерьер студии.</h2>
-			</div> -->
-		</div>
-		<div class="desc" />
-		<div class="test__holder">
-			<div class="test">
-				<h2>Фотографии на белом фоне,</h2>
+			<div class="description__holder" />
+			<div class="description__holder" />
+			<div class="description__holder">
+				<picture class="decription__image">
+					<source srcset="/img/3.webp" type="image/webp" />
+					<img
+						alt="SvobodinaPhoto"
+						crossorigin="anonimous"
+						decoding="async"
+						draggable="false"
+						src=""
+					/>
+				</picture>
+				<div class="description__title">
+					<h2>а не интерьер студии.</h2>
+				</div>
 			</div>
-			<div class="test">
-				<h2><br />где главный герой Вы,</h2>
-			</div>
-			<div class="test">
-				<h2><br /><br />а не интерьер студии.</h2>
-			</div>
-			<div class="test" />
 		</div>
 	</section>
 	<section class="tenats">
@@ -137,35 +135,31 @@
 		text-align: right;
 	}
 	.description__title {
-		/* width: min(800px, 60vw); */
+		width: min(800px, 60vw);
 		place-self: center;
 	}
 	.description__title > h2 {
-		font-size: max(26px, 4vw);
-		z-index: 2;
+		font-size: max(20px, 4vw);
 	}
 	img {
-		width: 90%;
+		width: 100%;
 	}
 	.desc {
-		height: 100vh;
-		width: 98vw;
+		/* height: 100vh; */
+		/* width: 90vw;
 		margin: 0 auto;
-		/* display: grid; */
-		grid-auto-flow: column;
+		display: grid;
+		grid-auto-flow: column; */
+	}
+	.first {
 		position: sticky;
-		top: 20vh;
+		top: 0;
 	}
-	.decription {
-		position: relative;
-	}
-	.test {
+	.description__holder {
 		height: 100vh;
-		position: sticky;
-		top: 50vh;
-	}
-	.test__holder {
-		position: absolute;
-		top: 100vh;
+		width: 90vw;
+		margin: 0 auto;
+		display: grid;
+		grid-auto-flow: column;
 	}
 </style>
