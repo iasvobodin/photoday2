@@ -1,8 +1,24 @@
 <script>
+	import gsap from 'gsap'
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 	import { onMount } from 'svelte';
 	let scrollConatiner;
 	onMount(async () => {
 		const locomotiveModule = await import('locomotive-scroll');
+		const Scrollbar = await import('smooth-scrollbar');
+		const ScrollMagic = await import('scrollmagic');
+
+// init controller
+const controller = new ScrollMagic.Controller();
+
+// create a scene
+new ScrollMagic.Scene({
+	duration: 100, // the scene should last for a scroll distance of 100px
+	offset: 50, // start this scene after scrolling for 50px
+})
+	.setPin('#my-sticky-element') // pins the element for the the scene's duration
+	.addTo(controller); // assign the scene to the controller
 
 		scroll = new locomotiveModule.default({
 			el: scrollConatiner,

@@ -21,6 +21,9 @@
   "type": "module",
   "dependencies": {
     "animejs": "^3.2.1",
-    "locomotive-scroll": "^4.1.1"
+    "gsap": "^3.7.1",
+    "locomotive-scroll": "^4.1.1",
+    "scrollmagic": "^2.0.8",
+    "smooth-scrollbar": "^8.6.3"
   }
 }
